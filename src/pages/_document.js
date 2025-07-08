@@ -12,9 +12,9 @@ class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
             rel="stylesheet"
           />
-          <title>Flipkart</title>
           <meta name="theme-color" content="#ffffff" />
         </Head>
+        <title>Flipkart</title>
         <body>
           <Main />
           <NextScript />
