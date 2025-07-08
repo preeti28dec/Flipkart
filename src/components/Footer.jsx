@@ -1,28 +1,53 @@
 import React from "react";
-import { FaFacebook, FaTwitter, FaYoutube, FaInstagram ,FaBriefcase ,FaGift  } from 'react-icons/fa';
-import { IoMdMegaphone,IoIosHelpCircle  } from "react-icons/io";
+import {
+  FaFacebook,
+  FaTwitter,
+  FaYoutube,
+  FaInstagram,
+  FaBriefcase,
+  FaGift,
+  FaCcVisa,
+  FaCcMastercard,
+  FaCcAmex,
+  FaPaypal,
+  FaGoogleWallet,
+} from "react-icons/fa";
+import { IoMdMegaphone, IoIosHelpCircle } from "react-icons/io";
 import { FiRefreshCcw } from "react-icons/fi";
+import Image from "next/image";
 
 const Footer = () => {
   const sections = [
     {
       title: "ABOUT",
-      items: ["Contact Us", "About Us", "Careers", "Flipkart Stories", "Press", "Corporate Information"]
+      items: [
+        "Contact Us",
+        "About Us",
+        "Careers",
+        "Flipkart Stories",
+        "Press",
+        "Corporate Information",
+      ],
     },
     {
       title: "GROUP COMPANIES",
-      items: ["Myntra", "Cleartrip", "Shopsy"]
+      items: ["Myntra", "Cleartrip", "Shopsy"],
     },
     {
       title: "HELP",
-      items: ["Payments", "Shipping", "Cancellation & Returns", "FAQ"]
+      items: ["Payments", "Shipping", "Cancellation & Returns", "FAQ"],
     },
     {
       title: "CONSUMER POLICY",
       items: [
-        "Cancellation & Returns", "Terms Of Use", "Security",
-        "Privacy", "Sitemap", "Grievance Redressal", "EPR Compliance"
-      ]
+        "Cancellation & Returns",
+        "Terms Of Use",
+        "Security",
+        "Privacy",
+        "Sitemap",
+        "Grievance Redressal",
+        "EPR Compliance",
+      ],
     },
   ];
 
@@ -34,12 +59,19 @@ const Footer = () => {
   ];
 
   const bottomLinks = [
-    { icon: FaBriefcase , label: "Become a Seller" },
+    { icon: FaBriefcase, label: "Become a Seller" },
     { icon: IoMdMegaphone, label: "Advertise" },
-    { icon: FaGift , label: "Gift Cards" },
-    { icon: IoIosHelpCircle , label: "Help Center" },
+    { icon: FaGift, label: "Gift Cards" },
+    { icon: IoIosHelpCircle, label: "Help Center" },
   ];
 
+  const paymentIcons = {
+    VISA: FaCcVisa,
+    MC: FaCcMastercard,
+    AE: FaCcAmex,
+    PP: FaPaypal,
+    UPI: FaGoogleWallet, // closest alternative
+  };
   const payments = ["VISA", "MC", "AE", "PP", "UPI"];
 
   return (
@@ -48,11 +80,15 @@ const Footer = () => {
       <div className="container mx-auto grid grid-cols-1 md:grid-cols-6 gap-8 pb-8 border-b border-gray-700">
         {sections.map((sec, i) => (
           <div key={i}>
-            <h3 className="text-gray-500 text-xs font-semibold mb-4 uppercase">{sec.title}</h3>
+            <h3 className="text-gray-500 text-xs font-semibold mb-4 uppercase">
+              {sec.title}
+            </h3>
             <ul className="space-y-2 text-sm">
               {sec.items.map((item, idx) => (
                 <li key={idx}>
-                  <a href="#" className="hover:text-white">{item}</a>
+                  <a href="#" className="hover:text-white">
+                    {item}
+                  </a>
                 </li>
               ))}
             </ul>
@@ -61,30 +97,47 @@ const Footer = () => {
 
         {/* Mail Us */}
         <div>
-          <h3 className="text-gray-500 text-xs font-semibold mb-4 uppercase">Mail Us:</h3>
+          <h3 className="text-gray-500 text-xs font-semibold mb-4 uppercase">
+            Mail Us:
+          </h3>
           <address className="not-italic text-sm leading-relaxed">
-            Flipkart Internet Private Limited,<br />
-            Buildings Alyssa, Begonia & Clove Embassy Tech Village,<br />
-            Outer Ring Road, Devarabeesanahalli Village,<br />
+            Flipkart Internet Private Limited,
+            <br />
+            Buildings Alyssa, Begonia & Clove Embassy Tech Village,
+            <br />
+            Outer Ring Road, Devarabeesanahalli Village,
+            <br />
             Bengaluru, 560103, Karnataka, India
           </address>
           <div className="flex space-x-4 mt-4">
             {socialIcons.map(({ icon: Icon, link }, i) => (
-              <a key={i} href={link} className="hover:text-white"><Icon size={20} /></a>
+              <a key={i} href={link} className="hover:text-white">
+                <Icon size={20} />
+              </a>
             ))}
           </div>
         </div>
 
         {/* Registered Office */}
         <div>
-          <h3 className="text-gray-500 text-xs font-semibold mb-4 uppercase">Registered Office Address:</h3>
+          <h3 className="text-gray-500 text-xs font-semibold mb-4 uppercase">
+            Registered Office Address:
+          </h3>
           <address className="not-italic text-sm leading-relaxed">
-            Flipkart Internet Private Limited,<br />
-            Buildings Alyssa, Begonia & Clove Embassy Tech Village,<br />
-            Outer Ring Road, Devarabeesanahalli Village,<br />
-            Bengaluru, 560103, Karnataka, India<br />
-            CIN: U51109KA2012PTC066107<br />
-            Telephone: <a href="tel:18002029898" className="text-blue-400 hover:underline">1800 202 9898</a>
+            Flipkart Internet Private Limited,
+            <br />
+            Buildings Alyssa, Begonia & Clove Embassy Tech Village,
+            <br />
+            Outer Ring Road, Devarabeesanahalli Village,
+            <br />
+            Bengaluru, 560103, Karnataka, India
+            <br />
+            CIN: U51109KA2012PTC066107
+            <br />
+            Telephone:{" "}
+            <a href="tel:18002029898" className="text-blue-400 hover:underline">
+              1800 202 9898
+            </a>
           </address>
         </div>
       </div>
@@ -93,7 +146,11 @@ const Footer = () => {
       <div className="container mx-auto flex flex-col md:flex-row items-center justify-between pt-6 space-y-4 md:space-y-0">
         <div className="flex flex-wrap justify-center md:justify-start items-center space-x-4 text-sm">
           {bottomLinks.map(({ icon: Icon, label }, i) => (
-            <a key={i} href="#" className="flex items-center hover:text-white rounded-md p-2">
+            <a
+              key={i}
+              href="#"
+              className="flex items-center hover:text-white rounded-md p-2"
+            >
               <Icon size={16} className="mr-2" /> {label}
             </a>
           ))}
@@ -106,10 +163,11 @@ const Footer = () => {
 
         <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-4 text-sm">
           <span>&copy; 2007-2025 Flipkart.com</span>
-          <div className="flex space-x-2">
-            {payments.map((text, i) => (
-              <img key={i} src={`https://placehold.co/40x25/ffffff/000000?text=${text}`} alt={text} className="rounded-sm" />
-            ))}
+          <div className="flex space-x-4 text-white">
+            {payments.map((text, i) => {
+              const Icon = paymentIcons[text];
+              return Icon ? <Icon key={i} size={36} title={text} /> : null;
+            })}
           </div>
         </div>
       </div>
